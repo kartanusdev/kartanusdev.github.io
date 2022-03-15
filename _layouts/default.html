@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/WebPage">
+
+{% include head.html %}
+
+<body itemprop="mainContentOfPage">
+
+    {% include navbar.html %}
+    <main class="main">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+    <script src="{{ site.url }}/assets/js/toggleTheme.js"></script>
+</body>
+
+</html>

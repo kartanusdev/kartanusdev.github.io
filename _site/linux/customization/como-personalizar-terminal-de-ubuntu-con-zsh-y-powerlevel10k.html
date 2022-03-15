@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="kartanus">
+    <meta name="theme-color" content="#161616">
+    
+    <title>Kartanus | Cómo personalizar la terminal de GNU/Linux con Zsh, Oh My Zsh y Powerlevel10k? 🎨</title>
+    
+    <title>Kartanus | Science & Technology</title>
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Cómo personalizar la terminal de GNU/Linux con Zsh, Oh My Zsh y Powerlevel10k? 🎨" />
+<meta name="author" content="Kartanus" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Zsh es una shell con gran cantidad de complementos que incrementan nuestra productividad. Dado que existen un sinnúmero de plugins y temas que podemos incorporar. Déjame mostrarte cómo instalarla en GNU/Linux de una manera rápida y sencilla." />
+<meta property="og:description" content="Zsh es una shell con gran cantidad de complementos que incrementan nuestra productividad. Dado que existen un sinnúmero de plugins y temas que podemos incorporar. Déjame mostrarte cómo instalarla en GNU/Linux de una manera rápida y sencilla." />
+<link rel="canonical" href="http://:4000/linux/customization/como-personalizar-terminal-de-ubuntu-con-zsh-y-powerlevel10k" />
+<meta property="og:url" content="http://:4000/linux/customization/como-personalizar-terminal-de-ubuntu-con-zsh-y-powerlevel10k" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-08T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cómo personalizar la terminal de GNU/Linux con Zsh, Oh My Zsh y Powerlevel10k? 🎨" />
+<meta name="twitter:site" content="@kartanus" />
+<meta name="twitter:creator" content="@Kartanus" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Kartanus"},"dateModified":"2022-03-08T00:00:00-05:00","datePublished":"2022-03-08T00:00:00-05:00","description":"Zsh es una shell con gran cantidad de complementos que incrementan nuestra productividad. Dado que existen un sinnúmero de plugins y temas que podemos incorporar. Déjame mostrarte cómo instalarla en GNU/Linux de una manera rápida y sencilla.","headline":"Cómo personalizar la terminal de GNU/Linux con Zsh, Oh My Zsh y Powerlevel10k? 🎨","mainEntityOfPage":{"@type":"WebPage","@id":"http://:4000/linux/customization/como-personalizar-terminal-de-ubuntu-con-zsh-y-powerlevel10k"},"url":"http://:4000/linux/customization/como-personalizar-terminal-de-ubuntu-con-zsh-y-powerlevel10k"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!--/=====/ CSS Links /=====/-->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!--/=====/ Icons Links /=====/-->
+    <link rel="shortcut icon" href="/assets/images/kartanus-profile.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png" />
+    <!--/=====/ Highlight JS /=====/-->
+    <script src="/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</head>
+
+<body itemprop="mainContentOfPage">
+
+    <section class="section-wrapper">
+    <header class="header">
+        <nav class="header__top-nav">
+            <ul class="top-nav__ul">
+                <li class="top-nav__ul__kartanus"><a href="/">KARTANUS</a></li>
+                <li class="top-nav__ul__togglemode">
+                    <button id="togglethemebtn" aria-label="activate dark mode">
+                        <svg id="darkmode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                            height="22">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z" />
+                        </svg>
+                        <svg id="lightmode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                            height="22">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</section>
+    <main class="main">
+            <section class="fullpage__article">
+        <article id="pagePost" itemscope itemtype="https://schema.org/NewsArticle">
+            <header id="pagePost__meta">
+                
+                <div id="pagePost__tags">
+                    <ul id="pagePost__tags__ul" style="padding: 0; margin: 1em 0;"><li>
+                            <span>#linux</span>
+                        </li><li>
+                            <span>#customization</span>
+                        </li></ul>
+                </div>
+                
+                <h1 style="border: none;">Cómo personalizar la terminal de GNU/Linux con Zsh, Oh My Zsh y Powerlevel10k? 🎨</h1>
+            </header>
+        
+            <section id="pagePost__content">
+                <h2 id="instalar-zsh">Instalar ZSH</h2>
+<p>Para hacernos con zsh varía mucho qué distribución de GNU/Linux estemos utilizando. Por ello aquí tienen instrucciones a las más comúnes.</p>
+
+<h3 id="suse--opensuse">SUSE / OpenSUSE</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo zypper install zsh
+</code></pre></div></div>
+
+<h3 id="arch-linux--manjaro-y-derivados">Arch linux / Manjaro y derivados</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S zsh
+</code></pre></div></div>
+
+<h3 id="fedora">Fedora</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install zsh
+</code></pre></div></div>
+
+<h3 id="ubuntu-debian-linux-mint-y-derivados">Ubuntu, Debian, Linux Mint y derivados</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Opción 1 
+$ sudo apt install zsh
+# Opción 2
+$ sudo apt-get install zsh
+</code></pre></div></div>
+
+<p>Si no has encontrado detalle para tu distribución, te invito a leer la <strong><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH" target="_blank" rel="noopener">documentación oficial de zsh.</a></strong></p>
+
+<p>Para corroborar que se haya instalado correctamente, mostraremos la versión de zsh en el terminal utilizando el siguiente comando:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ zsh --version # zsh 5.8 (La versión puede ser diferente!)
+</code></pre></div></div>
+
+<h2 id="configurando-zsh">Configurando ZSH</h2>
+<p>Listo! Si todo a ido bien, deberías de tener zsh instalado en tu GNU/Linux. Lo próximo es reemplazar el shell actual por el de zsh. Para esto debemos de introducir un comando.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Seleccionar a zsh como shell por defecto
+$ chsh -s $(which zsh)
+</code></pre></div></div>
+
+<p>Para que los cambios sean reflejados, necesitamos <strong>reiniciar la pc</strong>. Lo podemos hacer rápidamente con el comando <code class="language-plaintext highlighter-rouge">reboot</code></p>
+
+<p>Cuando vuelvas a abrir tu consola, es posible que te aparezca lo siguiente:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(q)  Quit and do nothing.  The function will be run again next time.
+
+(0)  Exit, creating the file ~/.zshrc containing just a comment.
+    That will prevent this function being run again.
+
+(1)  Continue to the main menu.
+
+(2)  Populate your ~/.zshrc with the configuration recommended
+    by the system administrator and exit (you will need to edit
+    the file by hand, if so desired).
+</code></pre></div></div>
+
+<p>Lo mostrado no es más que una “bienvenida” de zsh, informándonos que no existe ninguna configuración previa, estamos desde cero. Para continuar, <strong>basta con colocar 0</strong>.</p>
+
+<h2 id="instalación-de-oh-my-zsh">Instalación de Oh My Zsh</h2>
+<p>Oh My Zsh es un framework open-source que trabaja con zsh. Su función general es <strong>proveer de un superpack de utilidades</strong>: funciones, temas, plugins para gestionar la configuración de Zsh. Dato curioso: En Bash tenermos a Oh My Bash.</p>
+
+<p>Para la instalación es necesario tener instalado <code class="language-plaintext highlighter-rouge">zsh</code>, <code class="language-plaintext highlighter-rouge">git</code>, <code class="language-plaintext highlighter-rouge">curl</code> ó <code class="language-plaintext highlighter-rouge">wget</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Instalar Oh My Zsh vía curl
+$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+</code></pre></div></div>
+
+<p>Y seguramente, una vez lo tengas, verás cómo tu terminal se llenará de colores 🌈</p>
+
+<h2 id="configuración-de-las-nerd-fonts">Configuración de las Nerd Fonts</h2>
+<p>Si no has escuchado hablar de ellas, te lo explico rápido. Son fuentes que incluyen un buen número de iconos. Estos pueden servir a la hora de trabajar en la terminal y querer mostrar íconos desde tu misma fuente. Esto es casi obligatorio a la hora de instalar temas de zsh y el “estándar” viene siendo la fuente <strong><a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo" target="_blank" rel="noopener">Meslo</a></strong>, aunque tienes el catálogo oficial en el repositorio de <strong><a href="https://github.com/ryanoasis/nerd-fonts/blob/master/readme_es.md#patched-fonts" target="_blank" rel="noopener">Nerd Fonts</a></strong>.</p>
+
+<p>Ojo que cuando entres en los archivos del repositorio de fuentes tendras que tener cuidado, ya que las fuentes <code class="language-plaintext highlighter-rouge">mono</code> son aquellas que no tienen ligaturas (Las ligaduras son las que permiten mostrar combinaciones de carácteres para formar uno nuevo. Me explico, si has utilizado Microsoft Word o algún editor de texto inteligente, habrás notado que a la hora de escribir carácteres como lambda se genera un carácter nuevo. En programación también se usan, y mucho, ya que en vés de hacer una flecha representada por un signo ‘=’ y otro ‘&gt;’ se genera un nuevo carácter). En este imagen se aprecian ciertos ejemplos.</p>
+
+<figure>
+    <img width="100%" loading="lazy" alt="Font ligatures" src="https://repository-images.githubusercontent.com/26500787/bf313080-6b02-11ea-9cd5-c3dca880736d" />
+</figure>
+
+<p>Pulsando <strong><a href="https://github.com/powerline/fonts/blob/master/Meslo%20Dotted/Meslo%20LG%20S%20DZ%20Regular%20for%20Powerline.ttf" target="_blank" rel="noopener">aquí</a></strong> podrás descargar la fuente. Después de instalarla, lo siguiente será acceder a las propiedades de tu terminal y seleccionar la fuente con el nombre ‘Meslo LG S DZ Regular for Powerline’. Ojo que si deseas puedes optar por otra <strong><a href="https://github.com/ryanoasis/nerd-fonts/blob/master/readme_es.md#patched-fonts" target="_blank" rel="noopener">Nerd Font</a></strong>.</p>
+
+<h2 id="instalación-del-tema-powerlevel10k">Instalación del tema Powerlevel10k</h2>
+<p>Este tema es uno de los más populares que trabajan con el framework de Zsh. Para hacer un uso correcto es necesario que instales una Nerd Font.</p>
+
+<p>Para instalarlo a través de Oh My Zsh utilizaremos las siguientes instrucciones:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clonamos el repositorio</span>
+<span class="nv">$ </span>git clone <span class="nt">--depth</span><span class="o">=</span>1 https://github.com/romkatv/powerlevel10k.git <span class="k">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="k">}</span>/themes/powerlevel10k
+</code></pre></div></div>
+
+<p>Una vez instalado necesitamos indicarle a Oh My Zsh qué tema utilizar. Para eso tenemos que modificar el archivo <code class="language-plaintext highlighter-rouge">~/.zshrc</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Opción 1: Abrir en vim</span>
+<span class="nv">$ </span>vim ~/.zshrc
+
+<span class="c"># Opción 2: Abrir en vscode</span>
+<span class="nv">$ </span>code ~/.zshrcs
+</code></pre></div></div>
+
+<p>Una vez dentro, debemos de buscar la sentencia <code class="language-plaintext highlighter-rouge">ZSH_THEME</code> que se encuentra alrededor de la línea 11. Probablemente veas un valor parecido a <code class="language-plaintext highlighter-rouge">ZSH_THEME="robbyrussell"</code>.</p>
+
+<p>Tendrás que cambiar el valor “robbyrussell” por <code class="language-plaintext highlighter-rouge">powerlevel10k/powerlevel10k</code>. Una vez hecho esto guardamos el documento y <strong>reiniciamos la terminal</strong>.</p>
+
+<h2 id="configuración-de-powerlevel10k">Configuración de Powerlevel10k</h2>
+<p>Ahora irás viendo un menú con diferentes preguntas. Estas las debes responder de acuerdo a tu configuración, además en la pregunta de <code class="language-plaintext highlighter-rouge">Instant Prompt Mode</code> por ahora marca <strong>Verbose: La opción recomendada.</strong> Por último terminamos la configuración y guardamos los cambios con la letra (y).</p>
+
+<p>Supongamos que no quedaste satisfecho con tu configuración y deseas cambiarla. Para eso puedes colocar el comando <code class="language-plaintext highlighter-rouge">p10k configure</code> y tendrás el menú de configuración de vuelta! 🎨</p>
+
+            </section>
+        </article>
+    </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WPFooter">
+    <section class="footer__section">
+        <header class="footer__section__header">
+            <p itemprop="about">
+                <strong>
+                    <h4><a href="/" target="_blank" class="footer__kartanus">Kartanus</a></h4>
+                </strong> — Focus to
+                spread news related to Programming, Science and Technology.
+            </p>
+        </header>
+        <article class="footer__section__article">
+            <span>
+                Made by <strong><a href="https://github.com/kartanusdev" target="_blank" itemprop="author"
+                        class="footer__author">@kartanusdev</a></strong> with
+                <❤️ />.
+            </span>
+        </article>
+    </section>
+</footer>
+    <script src="http://:4000/assets/js/toggleTheme.js"></script>
+</body>
+
+</html>

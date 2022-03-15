@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+    <section class="fullpage__article">
+        <article id="pagePost" itemscope itemtype="https://schema.org/NewsArticle">
+            <header id="pagePost__meta">
+                {% if page.tags.size > 0 %}
+                <div id="pagePost__tags">
+                    <ul id="pagePost__tags__ul" style="padding: 0; margin: 1em 0;">
+                        {%- for tag in page.tags -%}
+                        <li>
+                            <span>#{{ tag }}</span>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+                {% endif %}
+                <h1 style="border: none;">{{ page.title }}</h1>
+            </header>
+        
+            <section id="pagePost__content">
+                {{ content }}
+            </section>
+        </article>
+    </section>

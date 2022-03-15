@@ -1,0 +1,56 @@
+
+/*/==========/ WRAPPER /===========/*/
+.section-wrapper {
+    width: 100%;
+}
+
+/*/==========/ NAV /===========/*/
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: var(--var-nav-bg);
+}
+.header__top-nav {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: var(--screen-width-max);
+}
+.top-nav__ul {
+    padding: 0 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top-nav__ul__kartanus a {
+    font-size: 1em;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--var-body-color);
+}
+.top-nav__ul__togglemode {
+    cursor: default;
+}
+.top-nav__ul__togglemode button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.top-nav__ul__togglemode button svg {
+    width: 20px;
+    fill: var(--var-nav-svg-fill);
+    transition: opacity 300ms ease-in-out;
+    -webkit-transition: opacity 300ms ease-in-out;
+    -moz-transition: opacity 300ms ease-in-out;
+    -ms-transition: opacity 300ms ease-in-out;
+    -o-transition: opacity 300ms ease-in-out;
+}
+.top-nav__ul__togglemode button svg:hover {
+    opacity: 80%;
+}
+#lightmode {
+    display: none;
+}

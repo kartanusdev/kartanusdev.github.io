@@ -1,0 +1,19 @@
+<section class="main__section-article">
+    {% for post in site.posts %}
+    <article class="section-article__article" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+        <a href="{{ post.url }}" class="article__anchor" aria-label="{{ post.title }}"></a>
+        <header class="article__header" itemscope itemtype="https://schema.org/WPHeader">
+            <h3 itemprop="headline">{{ post.title }}</h3>
+            <p itemprop="description">{{ post.description }}</p>
+        </header>
+        <footer class="article__footer">
+            <address class="article__address" role="contentinfo">
+                <img src="https://avatars.githubusercontent.com/u/98678109?v=4" alt="{{post.author}}">
+                <strong style="font-weight: 600;" itemprop="author">{{post.author}}</strong>
+                <time datetime="{{ post.date | date: " %Y-%m-%d" }}" itemprop="datePublished">{{ post.date |
+                    date_to_string }}</time>
+            </address>
+        </footer>
+    </article>
+    {% endfor %}
+</section>

@@ -1,0 +1,106 @@
+
+/*/==========/ FONTS /===========/*/
+@font-face {
+  font-family: 'Livvic';
+  src: local('Livvic Regular'), local('Livvic-Regular'),
+      url('../fonts/Livvic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Livvic';
+  src: local('Livvic Medium'), local('Livvic-Medium'),
+      url('../fonts/Livvic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Livvic';
+  src: local('Livvic SemiBold'), local('Livvic-SemiBold'),
+      url('../fonts/Livvic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Livvic';
+  src: local('Livvic Black'), local('Livvic-Black'),
+      url('../fonts/Livvic-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+/*/==========/ GENERAL /===========/*/
+:root {
+  --font-general: 'Livvic', Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --red-normal: #ff30308f;
+
+  --screen-width-max: 800px;
+
+  --var-body-color: #202020;
+  --var-body-bg: #f5f5f5;
+
+  --var-nav-svg-fill: #202020;
+
+  --var-article-bg: #FFFFFF;
+  --var-article-border: #ddd;
+
+  --aside-tags-bg: #ff3030a6;
+
+  --light-markdown-tt: #E0E0E0;
+  --light-markdown-block: #252525;
+  --light-markdown-block-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --light-blockquote-color: #777777;
+  --light-table-bg: #FFF;
+  --light-table-top-bg: #F6F6F6;
+  --light-markdown-table-border: #E0E0E0;
+
+  --var-footer-bg: #161616;
+  --var-footer-color: #F7F7F7;
+}
+
+html[data-theme="dark"] {
+  --var-body-color: #F7F7F7;
+  --var-body-bg: #1C1C1C;
+
+  --var-nav-svg-fill: #F7F7F7;
+
+  --light-markdown-tt: #303030;
+  --light-table-bg: #161616;
+  --light-table-top-bg: #F6F6F6;
+  --light-markdown-table-border: #303030;
+
+
+  --var-article-bg: #333333;
+  --var-article-border: #282828;
+}
+
+/*/==========/ GENERAL /===========/*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a, li, ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  font-weight: 400;
+  font-family: var(--font-general);
+  color: var(--var-body-color);
+  background-color: var(--var-body-bg);
+}
+
+/*/==========/ TRANSITION /===========/*/
+body, .header, .section-article__article, .page-article__article {
+  transition: background 200ms ease-in-out;
+}

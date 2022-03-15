@@ -1,0 +1,35 @@
+/*/==========/ FOOTER /===========/*/
+.footer {
+    font-weight: 500;
+    margin-top: 2em;
+    width: 100%;
+    background-color: var(--var-footer-bg);
+}
+.footer__section {
+    margin: 0 auto;
+    padding: 2.5em 1em;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    color: var(--var-footer-color);
+}
+
+.footer__section__header{
+    width: 100%;
+    display: inline-block;
+}
+
+.footer__section__header h4 {
+    display: inline;
+}
+
+.footer__kartanus, .footer__author {
+    color: var(--red-normal);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 300ms all ease;
+}
+
+.footer__kartanus:hover, .footer__author:hover {
+    opacity: 60%;
+}
